@@ -1,11 +1,13 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: rgba(151, 246, 227, 0.285);
+
     
     
 }
 #board { 
-    background-color: rgba(129, 236, 215, 0.285);
+    background-color: rgba(151, 246, 227, 0.285);
     height: 100vh;
     position: relative;
     overflow: hidden;
