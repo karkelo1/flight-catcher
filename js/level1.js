@@ -8,7 +8,7 @@ const createGameIntro = () => {
     container.style.top = "60px"; // Set top position to 80px from the top
     container.style.left = "20%"; // Align the left to the middle of the viewport
     container.style.transform = "translate(-50%, -50%)";
-    container.style.background = "rgba(255, 100, 100, 0.8)"; // Add a slightly transparent red background
+    container.style.background = "rgba(255, 140, 0, 0.9)"; // Add a slightly transparent red background
     container.style.borderRadius = "10px"; // Add rounded corners
     container.style.color = "white"; // Set text color to white
     container.style.fontFamily = "Arial, sans-serif"; // Use Arial font
@@ -69,7 +69,7 @@ createGameIntro();
 
 // Create an image element for the background
 const backgroundImage = document.createElement("img");
-backgroundImage.src = "./images/plane.jpg"; // Set the image source
+backgroundImage.src = "./images/maledives.jpg"; // Set the image source
 backgroundImage.style.position = "absolute";
 backgroundImage.style.top = "0";
 backgroundImage.style.left = "0";
@@ -92,7 +92,7 @@ class Player {
         this.bikeCollided = false;
 
         this.createDomElement();
-      
+
 
     }
 
@@ -131,11 +131,11 @@ class Player {
             this.domElm.style.left = this.positionX + "vw";
         }
     }
-   
+
     handleCollision(obstacle) {
         console.log("Collision Detected!");
         console.log("Collided with:", obstacle.constructor.name);
-        
+
         if (!obstacle.bike) {
             // If collided with a plane obstacle
             this.planeCollisions++;
@@ -149,7 +149,7 @@ class Player {
             obstacles.splice(index, 1);
             obstacle.domElm.remove();
             console.log("Obstacle removed:", obstacle);
-    
+
             // Display collision image only for plane obstacles
             const collisionImage = document.createElement("img");
             collisionImage.src = "./images/ticket.png"; // Set source to collision image
@@ -160,7 +160,7 @@ class Player {
             collisionImage.style.height = "auto"; // Maintain aspect ratio
             collisionImage.style.zIndex = "1";
             document.body.appendChild(collisionImage);
-    
+
             setTimeout(() => {
                 collisionImage.remove();
             }, 1000);
@@ -195,8 +195,8 @@ setInterval(() => {
         }
     });
 }, 20);
-    
-    
+
+
 
 
 
@@ -245,10 +245,29 @@ obstaclesToRemove = [];
 class BikeObstacle extends Obstacle {
     constructor() {
         super();
-        this.bike = true
+        this.bike = true;
         this.domElm.querySelector("img").src = "./images/bike.png";
-    }
 
+        // Define CSS keyframes for the rotation animation
+        const keyframes = `@keyframes rotateDown {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }`;
+
+        // Create a style element to hold the keyframes
+        const style = document.createElement("style");
+        style.innerHTML = keyframes;
+
+        // Append the style element to the document head
+        document.head.appendChild(style);
+
+        // Add the animation to the bike element
+        this.domElm.querySelector("img").style.animation = "rotateDown 1s linear forwards";
+    }
     moveDown() {
         this.positionY -= 2; // Adjust the speed for bike obstacles (you can change the speed as needed)
         this.domElm.style.bottom = this.positionY + "vh";
