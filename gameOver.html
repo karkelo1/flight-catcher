@@ -7,16 +7,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Honk&display=swap">
 <style>
     body {
-        overflow: scroll;
+        overflow: hidden; /* Prevent scrolling */
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
         background-image: url(./images/gameover.jpg);
-       background-size: cover;
-        background-position: absolute;
-        background-repeat: no-repeat;
-        background-position-x: center;
-        height: 530px;
-        width: 800;
-        bottom: 10px;
-
+        background-size: cover; /* Cover the entire screen */
+        background-position: center; /* Center the background image */
+        background-repeat: no-repeat; /* No repeat */
+        height: 100vh; /* Full viewport height */
+        display: flex; /* Use flexbox for centering */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
     }
     /* Style for the restart button */
     .restart-button {
@@ -32,21 +33,21 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
         transition: transform 0.2s, box-shadow 0.2s;
         position: fixed;
-        left: 40%;
-        transform: translateX(-2%);
+        left: 44%;
+        transform: translateX(-18%);
         bottom: 20px;
     }
 
     /* Hover effect for the restart button */
     .restart-button:hover {
-        transform: translateY(2px); /* Move button down slightly for 3D effect */
+        transform: translateY(1px); /* Move button down slightly for 3D effect */
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
     }
     .logo {
-        width: 250px; /* Adjust the width of the logo as needed */
-        position: fixed;
-        left: calc(30,30); /* Adjust the left position to align with the button */
-   
+        width: 130px; /* Adjust the width of the logo as needed */
+        position: absolute; /* Position relative to the body */
+        top: 1px; /* Adjust the vertical position */
+        left: calc(57% - 125px); /* Center horizontally */
     }
 </style>
 </head>
