@@ -2,9 +2,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: rgba(253, 170, 128, 0.088);
-
-    
-    
+    overflow: hidden;
 }
 #board { 
     

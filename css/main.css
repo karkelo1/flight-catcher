@@ -2,9 +2,9 @@ body{
     margin: 0;
     padding: 0;
     background-color: rgba(244, 225, 168, 0.112);
+    overflow: hidden;
 
-    
-    
+
 }
 #board { 
     
@@ -22,8 +22,4 @@ position: absolute;
 .obstacle {
 
     position: absolute;
-}
-#page-gameover {
-    text-align: center;
-    background-color: rgb(166, 161, 171);
 }

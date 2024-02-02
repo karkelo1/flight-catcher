@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function () {
+    // Code to execute when the DOM is ready
+    console.log("DOMContentLoaded event fired");
+});
 // Create the heading and explanation elements
 const createGameIntro = () => {
     // Create a container div for the heading and explanation
@@ -19,20 +23,18 @@ const createGameIntro = () => {
     const styles = `
     @keyframes popUp {
         0% {
-            transform: scale(0.8) rotate(0deg); /* Start from slightly smaller size and no rotation */
-            opacity: 0; /* Start from fully transparent */
+            transform: scale(0.8) rotate(0deg);
+            opacity: 0;
         }
         50% {
-            transform: scale(1.1) rotate(180deg); /* Scale up and rotate halfway through */
-            opacity: 1; /* Fade in */
+            transform: scale(1.1) rotate(180deg);
+            opacity: 1;
         }
         100% {
-            transform: scale(1) rotate(360deg); /* Return to normal size and complete the rotation */
-            opacity: 1; /* Stay fully opaque */
+            transform: scale(1) rotate(360deg);
+            opacity: 1;
         }
-    }
-`;
-
+    }`;
     // Add the styles to the head of the document
     const styleSheet = document.createElement("style");
     styleSheet.innerText = styles;
@@ -45,7 +47,8 @@ const createGameIntro = () => {
 
     // Create the explanation element
     const explanation = document.createElement("h4");
-    explanation.textContent = "Catch 3 flights to get to a better destination. Be careful, if you catch the bike, you will lose!";
+    explanation.textContent = "Congrats! You're in Maldives. Catch 3 more flights for your surprise destination. Avoid the bike!";
+
     explanation.style.fontSize = "14px"; // Set the font size to 14 pixels
 
     // Append the heading and explanation elements to the container
@@ -142,7 +145,7 @@ class Player {
             console.log("Plane collisions:", this.planeCollisions, obstacle);
             if (this.planeCollisions === 3) {
                 // Redirect to next level when 3 plane obstacles are collided
-                window.location.href = "./level1.html";
+                window.location.href = "./level2.html";
             }
             // Remove the collided plane obstacle
             const index = obstacles.indexOf(obstacle);

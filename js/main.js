@@ -142,7 +142,7 @@ class Player {
             console.log("Plane collisions:", this.planeCollisions, obstacle);
             if (this.planeCollisions === 3) {
                 // Redirect to next level when 3 plane obstacles are collided
-                window.location.href = "./level1.html";
+                window.location.href = "./level2.html";
             }
             // Remove the collided plane obstacle
             const index = obstacles.indexOf(obstacle);
@@ -247,10 +247,29 @@ class BikeObstacle extends Obstacle {
         super();
         this.bike = true
         this.domElm.querySelector("img").src = "./images/bike.png";
+        const keyframes = `@keyframes rotateDown {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }`;
+
+        // Create a style element to hold the keyframes
+        const style = document.createElement("style");
+        style.innerHTML = keyframes;
+
+        // Append the style element to the document head
+        document.head.appendChild(style);
+
+        // Add the animation to the bike element
+        this.domElm.querySelector("img").style.animation = "rotateDown 1s linear forwards";
+    
     }
 
     moveDown() {
-        this.positionY -= 2; // Adjust the speed for bike obstacles (you can change the speed as needed)
+        this.positionY -= 1; // Adjust the speed for bike obstacles (you can change the speed as needed)
         this.domElm.style.bottom = this.positionY + "vh";
     }
 }
