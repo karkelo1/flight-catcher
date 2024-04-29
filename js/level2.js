@@ -175,7 +175,7 @@ class Player {
                 this.bikeCollided = true;
                 // showGameOverScreen();
                 // Redirect to game over page
-                window.location.href = "/gameoverr.html";
+                window.location.href = "./gameoverr.html";
             }
         }
     }
